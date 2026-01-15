@@ -1,0 +1,6 @@
+{
+  "version": "2.3.0",
+  "download_url": "https://github.com/SKYJ0/GOLEVENTS_PRO/releases/download/v2.3.0/GOLEventsPro_v2.3.0.zip",
+  "mandatory": true,
+  "notes": "v2.3.0 CRITICAL SECURITY UPDATE: HWID Locking, Admin Panel, New Platform Tools, and Mandatory Update System."
+}
