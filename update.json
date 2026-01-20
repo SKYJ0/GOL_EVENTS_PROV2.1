@@ -1,6 +1,6 @@
 {
-  "version": "v2.3.2",
-  "download_url": "https://github.com/SKYJ0/GOLEVENTS_PRO/releases/download/v2.3.2/GOLEventsPro_v2.3.2.zip",
+  "version": "v2.3.3",
+  "download_url": "https://github.com/SKYJ0/GOLEVENTS_PRO/releases/download/v2.3.3/GOLEventsPro_v2.3.3.zip",
   "mandatory": true,
-  "notes": "v2.3.2 Update: Fixed App Freeze in CheckListing, optimized performance, and removed popup."
+  "notes": "v2.3.3 Update: Added Tixstock (Text) & Football Ticket Net (HTML) Import features."
 }
