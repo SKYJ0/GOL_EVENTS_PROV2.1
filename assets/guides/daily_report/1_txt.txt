@@ -1,0 +1,1 @@
+This tool automates your daily workflow. Ensure all data sources are connected.

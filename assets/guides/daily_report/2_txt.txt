@@ -1,0 +1,1 @@
+Click 'Run Daily Cycle' to execute all daily checks and generate the summary report.

@@ -1,0 +1,1 @@
+Click 'Generate' to create high-resolution QR codes for each entry. Files are saved to the output folder.

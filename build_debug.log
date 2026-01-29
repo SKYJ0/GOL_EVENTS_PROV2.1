@@ -1,0 +1,243 @@
+>>> GOLEVENTS PRO BUILDER <<<
+1. Configuring CMake (x64-release)...
+-- Running vcpkg install
+Detecting compiler hash for triplet x64-windows...
+Compiler found: C:/Program Files/Microsoft Visual Studio/18/Community/VC/Tools/MSVC/14.50.35717/bin/Hostx64/x64/cl.exe
+The following packages are already installed:
+  * boost-assert:x64-windows@1.90.0#1
+  * boost-cmake:x64-windows@1.90.0#1
+  * boost-config:x64-windows@1.90.0#1
+  * boost-container:x64-windows@1.90.0#1
+  * boost-headers:x64-windows@1.90.0#1
+  * boost-intrusive:x64-windows@1.90.0#1
+  * boost-move:x64-windows@1.90.0#1
+  * boost-uninstall:x64-windows@1.90.0#1
+  * brotli:x64-windows@1.2.0
+  * bzip2[core,tool]:x64-windows@1.0.8#6
+    curl[core,non-http,ssl,sspi]:x64-windows@8.18.0
+  * dbus:x64-windows@1.16.2#2
+  * double-conversion:x64-windows@3.4.0
+  * egl-registry:x64-windows@2025-05-27
+  * expat:x64-windows@2.7.3
+  * freetype[brotli,bzip2,core,png,zlib]:x64-windows@2.13.3
+  * giflib:x64-windows@5.2.2#2
+  * harfbuzz[core,freetype]:x64-windows@12.3.0
+  * icu[core,tools]:x64-windows@78.1#1
+    leptonica:x64-windows@1.87.0
+  * libarchive[bzip2,core,crypto,lz4,lzma,xar,zstd]:x64-windows@3.8.5
+  * libiconv:x64-windows@1.18#3
+  * libjpeg-turbo:x64-windows@3.1.3
+  * liblzma:x64-windows@5.8.2
+  * libpng:x64-windows@1.6.53
+  * libpq[core,lz4,openssl,zlib]:x64-windows@16.9#2
+    libqrencode:x64-windows@4.1.1#3
+  * libwebp[core,libwebpmux,nearlossless,simd,unicode]:x64-windows@1.6.0#2
+  * lz4:x64-windows@1.10.0
+  * md4c:x64-windows@0.5.2
+    nlohmann-json:x64-windows@3.12.0#1
+  * nowide:x64-windows@11.3.1
+  * opengl:x64-windows@2022-12-04#3
+  * opengl-registry:x64-windows@2025-10-23
+  * openjpeg:x64-windows@2.5.4
+  * openssl:x64-windows@3.6.0#3
+    openxlsx:x64-windows@2025-07-14
+  * pcre2[core,jit,platform-default-features]:x64-windows@10.47
+  * pkgconf:x64-windows@2.5.1#4
+    poppler[core,font-configuration,zlib]:x64-windows@25.7.0
+  * pugixml:x64-windows@1.15#1
+    qtbase[brotli,concurrent,core,dbus,dnslookup,doubleconversion,freetype,gui,harfbuzz,icu,jpeg,network,opengl,openssl,pcre2,png,sessionmanager,sql,sql-psql,sql-sqlite,testlib,thread,widgets,zstd]:x64-windows@6.10.0#1
+    qtsvg:x64-windows@6.10.0
+  * sqlite3[core,json1]:x64-windows@3.51.1
+    tesseract:x64-windows@5.5.2
+  * tiff[core,jpeg,lzma,zip]:x64-windows@4.7.1
+  * vcpkg-boost:x64-windows@2025-03-29
+  * vcpkg-cmake:x64-windows@2024-04-23
+  * vcpkg-cmake-config:x64-windows@2024-05-23
+  * vcpkg-cmake-get-vars:x64-windows@2025-05-29
+  * vcpkg-make:x64-windows@2025-10-26
+  * vcpkg-pkgconfig-get-modules:x64-windows@2024-04-03
+  * vcpkg-tool-meson:x64-windows@1.9.0#3
+  * zlib:x64-windows@1.3.1
+  * zstd:x64-windows@1.5.7
+curl is compatible with built-in CMake targets:
+
+    find_package(CURL REQUIRED)
+    target_link_libraries(main PRIVATE CURL::libcurl)
+
+leptonica provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(Leptonica CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE leptonica)
+
+leptonica provides pkg-config modules:
+
+  # An open source C library for efficient image processing and image analysis operations
+  lept
+
+To use libqrencode library in CMakeLists.txt:
+
+    find_path(QRENCODE_INCLUDE_DIR NAMES qrencode.h)
+    find_library(QRENCODE_LIBRARY_RELEASE qrencode)
+    find_library(QRENCODE_LIBRARY_DEBUG qrencoded)
+    set(QRENCODE_LIBRARIES optimized ${QRENCODE_LIBRARY_RELEASE} debug ${QRENCODE_LIBRARY_DEBUG})
+
+    add_executable(main main.cpp)
+    target_include_directories(main PRIVATE ${QRENCODE_INCLUDE_DIR})
+    target_link_libraries(main PRIVATE ${QRENCODE_LIBRARIES})
+
+The package nlohmann-json provides CMake targets:
+
+    find_package(nlohmann_json CONFIG REQUIRED)
+    target_link_libraries(main PRIVATE nlohmann_json::nlohmann_json)
+
+The package nlohmann-json can be configured to not provide implicit conversions via a custom triplet file:
+
+    set(nlohmann-json_IMPLICIT_CONVERSIONS OFF)
+
+For more information, see the docs here:
+    
+    https://json.nlohmann.me/api/macros/json_use_implicit_conversions/
+
+openxlsx provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(OpenXLSX CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE OpenXLSX::OpenXLSX)
+
+The package poppler can be imported via CMake FindPkgConfig module:
+
+    find_package(PkgConfig)
+    pkg_check_modules(POPPLER_CPP REQUIRED IMPORTED_TARGET poppler-cpp)
+
+    target_link_libraries(main PRIVATE PkgConfig::POPPLER_CPP)
+
+qtbase provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(Qt6 CONFIG REQUIRED)
+  # note: 38 additional targets are not displayed.
+  target_link_libraries(main PRIVATE DB2::DB2 PPS::PPS Oracle::OCI Libb2::Libb2)
+
+  find_package(Qt6Concurrent CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::Concurrent)
+
+  find_package(Qt6Core CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::Core)
+
+  find_package(Qt6CorePrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::CorePrivate)
+
+  find_package(Qt6DBus CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::DBus)
+
+  find_package(Qt6DBusPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::DBusPrivate)
+
+  find_package(Qt6DeviceDiscoverySupportPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::DeviceDiscoverySupportPrivate)
+
+  find_package(Qt6EntryPointPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::EntryPointPrivate Qt6::EntryPointImplementation)
+
+  find_package(Qt6ExampleIconsPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::ExampleIconsPrivate Qt6::ExampleIconsPrivate_resources_1)
+
+  find_package(Qt6ExamplesAssetDownloaderPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::ExamplesAssetDownloaderPrivate)
+
+  find_package(Qt6FbSupportPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::FbSupportPrivate)
+
+  find_package(Qt6Gui CONFIG REQUIRED)
+  # note: 5 additional targets are not displayed.
+  target_link_libraries(main PRIVATE Qt6::Gui Qt6::QGifPlugin Qt6::QICOPlugin Qt6::QJpegPlugin)
+
+  find_package(Qt6GuiPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::GuiPrivate)
+
+  find_package(Qt6Network CONFIG REQUIRED)
+  # note: 1 additional targets are not displayed.
+  target_link_libraries(main PRIVATE Qt6::Network Qt6::QNLMNIPlugin Qt6::QSchannelBackendPlugin Qt6::QTlsBackendOpenSSLPlugin)
+
+  find_package(Qt6NetworkPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::NetworkPrivate)
+
+  find_package(Qt6OpenGL CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::OpenGL)
+
+  find_package(Qt6OpenGLPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::OpenGLPrivate)
+
+  find_package(Qt6OpenGLWidgets CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::OpenGLWidgets)
+
+  find_package(Qt6PrintSupport CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::PrintSupport)
+
+  find_package(Qt6PrintSupportPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::PrintSupportPrivate)
+
+  find_package(Qt6Sql CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::Sql Qt6::QPSQLDriverPlugin Qt6::QSQLiteDriverPlugin)
+
+  find_package(Qt6SqlPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::SqlPrivate)
+
+  find_package(Qt6Test CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::Test)
+
+  find_package(Qt6TestInternalsPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::TestInternalsPrivate)
+
+  find_package(Qt6TestPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::TestPrivate)
+
+  find_package(Qt6Widgets CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::Widgets Qt6::QModernWindowsStylePlugin)
+
+  find_package(Qt6WidgetsPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::WidgetsPrivate)
+
+  find_package(Qt6Xml CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::Xml)
+
+  find_package(Qt6XmlPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::XmlPrivate)
+
+qtsvg provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(Qt6Svg CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::Svg)
+
+  find_package(Qt6SvgPrivate CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::SvgPrivate)
+
+  find_package(Qt6SvgWidgets CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Qt6::SvgWidgets)
+
+tesseract provides CMake targets:
+
+  # this is heuristically generated, and may not be correct
+  find_package(Tesseract CONFIG REQUIRED)
+  target_link_libraries(main PRIVATE Tesseract::libtesseract)
+
+tesseract provides pkg-config modules:
+
+  # An OCR Engine that was developed at HP Labs (1985-1995) and Google (2006-2018).
+  tesseract
+
+All requested installations completed successfully in: 1.83 ms
+-- Running vcpkg install - done
+CMake Error at CMakeLists.txt:3 (project):
+  Generator
+
+    Visual Studio 17 2022
+
+  could not find any instance of Visual Studio.
+
+
+
+-- Configuring incomplete, errors occurred!
+Error: CMake Configuration failed.

@@ -1,0 +1,1 @@
+Configure the naming pattern (e.g., '{OriginalName}_{PageNum}') and click 'Split' to process.

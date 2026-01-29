@@ -1,0 +1,1 @@
+Click 'Check Listing' to verify the data against the current database. Results will appear in the log window below.

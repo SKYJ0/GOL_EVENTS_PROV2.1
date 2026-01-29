@@ -1,0 +1,1 @@
+Input a list of codes or select a file containing data for QR generation.

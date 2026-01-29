@@ -1,0 +1,1 @@
+Load a seating chart or list of seat numbers.

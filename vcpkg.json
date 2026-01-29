@@ -1,0 +1,17 @@
+{
+  "name": "golevents-pro",
+  "version": "2.0.0",
+  "builtin-baseline": "39922dbab0cafd7a7150d459c6a181c7dee5dfbe",
+  "description": "GOLEVENTS PRO - Ticket Inventory Management System",
+  "dependencies": [
+    "qtbase",
+    "qtsvg",
+    "curl",
+    "nlohmann-json",
+    "libqrencode",
+    "tesseract",
+    "poppler",
+    "leptonica",
+    "openxlsx"
+  ]
+}

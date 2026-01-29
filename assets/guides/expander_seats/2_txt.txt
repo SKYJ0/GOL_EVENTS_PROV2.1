@@ -1,0 +1,1 @@
+The tool will expand ranges (e.g., '1-10') into individual seat entries for detailed tracking.

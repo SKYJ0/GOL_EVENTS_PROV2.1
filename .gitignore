@@ -1,0 +1,26 @@
+# Build directories
+build/
+bin/
+Release/
+Debug/
+x64/
+
+# vcpkg
+vcpkg_installed/
+vcpkg_new/
+
+# IDE files
+.vs/
+*.user
+*.suo
+*.sln
+*.vcxproj
+*.filters
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Dist (should be uploaded as release asset instead of source)
+dist/
+dist.zip

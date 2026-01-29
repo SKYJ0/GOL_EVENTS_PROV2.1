@@ -1,0 +1,1 @@
+Select the root folder containing your ticket PDFs. The system will recursively scan all subfolders.

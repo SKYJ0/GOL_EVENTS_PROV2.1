@@ -1,0 +1,1 @@
+Click 'Convert' to extract text content. Output text files will be saved in the same directory.

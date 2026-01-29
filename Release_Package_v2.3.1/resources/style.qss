@@ -1,0 +1,151 @@
+/* --- SAPPHIRE & STEEL THEME (Restored) --- */
+
+/* GLOBAL RESET */
+* {
+    outline: none;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    font-size: 14px;
+    selection-background-color: #3b82f6; 
+    selection-color: #FFFFFF;
+}
+
+QLabel {
+    background: transparent;
+    border: none;
+}
+
+/* MAIN WINDOW */
+/* MAIN WINDOW */
+QMainWindow, QDialog, QStackedWidget {
+    background-color: #0f172a; /* Back to solid dark base */
+    color: #E2E8F0;
+}
+
+/* CONTENT CONTAINER (Right Side Only) */
+QWidget#mainContentContainer {
+    /* Solid background matching sidebar */
+    background-color: #0f172a;
+}
+
+/* Make internal containers transparent to show main background */
+QScrollArea, QScrollArea > QWidget, QScrollArea > QWidget > QWidget {
+    background: transparent;
+}
+
+QWidget#centralwidget, QWidget#loginWidget {
+    background: transparent; /* Let window background show through */
+    color: #E2E8F0;
+}
+
+/* Login Container */
+QWidget#loginContainer {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+}
+
+/* SIDEBAR */
+QWidget#sidebar {
+    background-color: #0f172a; /* Match Content Gradient Start */
+    border-right: none;         /* Remove separation line for seamless look */
+    min-width: 250px;
+    max-width: 250px;
+}
+
+/* SIDEBAR BUTTONS */
+QPushButton[class="navButton"] {
+    background: transparent;
+    border: none;
+    border-radius: 8px;
+    margin: 4px 12px;
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+QPushButton[class="navButton"]:hover {
+    background-color: #1e293b;
+}
+
+QPushButton[class="navButton"]:checked {
+    background-color: #1e293b;
+    border-left: 3px solid #3b82f6;
+    color: #3b82f6;
+    font-weight: 700;
+}
+
+/* PROFILE CARD */
+QFrame#profileCard {
+    background: transparent;
+    border: none; /* Remove all borders */
+    margin: 0px;
+    padding: 10px;
+}
+
+QFrame#profileCard QLabel, QFrame QLabel {
+    background: transparent;
+    border: none;
+}
+
+/* CARDS - Standard Frame (Glassy for Harmony) */
+QFrame#card {
+    background-color: rgba(255, 255, 255, 0.03); 
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+}
+
+QFrame#card:hover {
+    border: 1px solid rgba(255, 255, 255, 0.15); 
+    background-color: rgba(255, 255, 255, 0.06);
+}
+
+/* INPUTS */
+QLineEdit, QTextEdit {
+    background-color: rgba(30, 41, 59, 0.60); /* Semi-transparent Inputs/Logs */
+    border: 1px solid rgba(51, 65, 85, 0.6);
+    border-radius: 6px;
+    color: #f1f5f9;
+    padding: 8px 12px;
+}
+
+/* PRIMARY BUTTONS */
+QPushButton#actionButton, QPushButton[class="primaryBtn"] {
+    background-color: #3b82f6;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    padding: 10px 24px;
+}
+
+QPushButton#actionButton:hover, QPushButton[class="primaryBtn"]:hover {
+    background-color: #2563eb;
+}
+
+QLineEdit:focus, QTextEdit:focus {
+    border: 1px solid #3b82f6;
+}
+
+/* SCROLLBARS */
+QScrollBar:vertical {
+    background: transparent;
+    width: 8px;
+    margin: 2px;
+}
+QScrollBar::handle:vertical {
+    background: #334155;
+    border-radius: 4px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #475569;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical { height: 0px; }
+
+/* TOOLTIPS */
+QToolTip {
+    background-color: #1e293b;
+    color: #f1f5f9;
+    border: 1px solid #334155;
+    padding: 4px;
+}

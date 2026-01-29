@@ -1,0 +1,1 @@
+Specify the number of files and naming pattern, then click 'Generate'.

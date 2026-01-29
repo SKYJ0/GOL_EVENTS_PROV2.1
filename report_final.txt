@@ -1,0 +1,27 @@
+--- 🏟️ 2026.01.14 Inter vs Lecce ---
+
+--- 🛒 PLATFORM ORDERS SUMMARY ---
+PLATFORM        | SECTOR          |  TICKETS
+------------------------------------------
+Gogo            | 232             |        4
+Net             | 332             |        2
+Net             | Long Side Upper |        2
+Tixstock        | terzo rosso     |        5
+------------------------------------------
+TOTAL                             |       13
+
+--- 📈 TOTAL STOCK REPORT ---
+SECTOR          |    TOTAL | RESERVED | DELIVERED
+--------------------------------------------------
+214             |       11 |        0 |         0
+236             |        0 |        0 |         4
+324             |       56 |        0 |         0
+328             |        6 |        0 |         0
+332             |        5 |        0 |         2
+334             |       11 |        0 |         0
+360             |        3 |        0 |         0
+
+--- 📊 FINAL SUMMARY ---
+STOCK AVAILABLE: 92
+SOLD (Reserved + Delivered ): 13
+   (Orders without tickets yet: 7)
