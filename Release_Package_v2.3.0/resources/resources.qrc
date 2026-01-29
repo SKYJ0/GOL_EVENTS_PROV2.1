@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>knight.png</file>
-        <file>knight.ico</file>
-    </qresource>
-</RCC>

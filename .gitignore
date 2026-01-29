@@ -1,26 +1,79 @@
 # Build directories
+out/
 build/
-bin/
-Release/
-Debug/
-x64/
+Release_Package*/
+publish/
+
+# Test/Event folders
+2026.*/
+*Inter vs*/
+*Roma vs*/
+*Milan*/
+
+# Release packages
+*.zip
+GOLEventsPro_*.zip
+
+# Build logs and temporary files
+*.log
+*.txt
+build_*.log
+build_*.txt
+*_error*.log
+*_error*.txt
+clean_*.log
+config_*.log
+preset_log.txt
+debug.txt
+current_build_log.txt
+full_build_log.txt
+
+# Python scripts (legacy/tools)
+*.py
+GuideEditor.py
+apply_generated_images.py
+decrypt_url_test.py
+dump_pdf.py
+encrypt_tool.py
+fix_mw.py
+generate_guides.py
+update_keys.py
+
+# Batch files
+*.bat
+run_guide_editor.bat
+final_build.bat
+force_build.bat
+
+# PowerShell scripts (keep package_app.ps1)
+push_update.ps1
+
+# JSON test files
+test_report.json
+report_*.json
+keys.JSON
+secret.txt
+decrypted*.txt
+encrypted_output.txt
 
 # vcpkg
-vcpkg_installed/
-vcpkg_new/
+vcpkg/
+vcpkg.json
 
-# IDE files
+# CMake
+cmake/
+
+# Resources
+knight.ico
+knight.png
+
+# Old/backup files
+*_old.*
+CheckPrice_old.cpp
+
+# IDE
 .vs/
+.vscode/
 *.user
 *.suo
 *.sln
-*.vcxproj
-*.filters
-
-# OS files
-Thumbs.db
-Desktop.ini
-
-# Dist (should be uploaded as release asset instead of source)
-dist/
-dist.zip
