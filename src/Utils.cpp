@@ -19,7 +19,6 @@
 #include <QTimer>
 #include <QWidget>
 
-
 namespace GOL {
 
 // Color constants
@@ -40,41 +39,41 @@ const QString Utils::NAV_ACTIVE = "#1e293b";
 const QString Utils::VERSION = "v2.3.3";
 
 QString Utils::decryptString(const QByteArray &encrypted) {
-  // Hidden key: "ANTIGRAV_STRONG_KEY_2026_V2"
-  // Split into parts to avoid simple string searching
-  const unsigned char key[] = {0x41, 0x4E, 0x54, 0x49, 0x47, 0x52, 0x41,
-                               0x56, 0x5F, 0x53, 0x54, 0x52, 0x4F, 0x4E,
-                               0x47, 0x5F, 0x4B, 0x45, 0x59, 0x5F, 0x32,
-                               0x30, 0x32, 0x36, 0x5F, 0x56, 0x32};
+  // Ultra-strong 64-byte key (hidden in hex to avoid detection)
+  // Generated from: "ANTIGRAV_ULTRA_SECURE_2026_QUANTUM_RESISTANT_KEY_V3_FINAL"
+  const unsigned char key[] = {
+      0x41, 0x4E, 0x54, 0x49, 0x47, 0x52, 0x41, 0x56, 0x5F, 0x55, 0x4C,
+      0x54, 0x52, 0x41, 0x5F, 0x53, 0x45, 0x43, 0x55, 0x52, 0x45, 0x5F,
+      0x32, 0x30, 0x32, 0x36, 0x5F, 0x51, 0x55, 0x41, 0x4E, 0x54, 0x55,
+      0x4D, 0x5F, 0x52, 0x45, 0x53, 0x49, 0x53, 0x54, 0x41, 0x4E, 0x54,
+      0x5F, 0x4B, 0x45, 0x59, 0x5F, 0x56, 0x33, 0x5F, 0x46, 0x49, 0x4E,
+      0x41, 0x4C, 0x7A, 0x9B, 0xC3, 0xD4, 0xE5, 0xF6, 0x17};
   int keyLen = sizeof(key);
 
   QByteArray decrypted;
   decrypted.resize(encrypted.size());
 
-  // We need to reverse the process
-  // The Python encryption was:
-  // encrypted[i] = input[i] ^ key[i % keyLen]
-  // if i > 0: encrypted[i] ^= encrypted[i-1]
-
-  // So for decryption:
-  // We must process normally because the "encrypted[i-1]" dependency is on the
-  // CIPHERTEXT which we have. wait, let's trace: Enc: C[i] =  (P[i] ^ K[i]) ^
-  // C[i-1]  (for i > 0) Enc: C[0] = P[0] ^ K[0]
-
-  // Dec:
-  // We know C[i], K[i], and C[i-1]
-  // P[i] ^ K[i] = C[i] ^ C[i-1]
-  // P[i] = C[i] ^ C[i-1] ^ K[i]
-
-  // For i=0:
-  // P[0] = C[0] ^ K[0]
+  // Multi-layer decryption:
+  // Layer 1: XOR with key and previous ciphertext byte
+  // Layer 2: Rotate bits based on position
+  // Layer 3: XOR with position-dependent value
 
   for (int i = 0; i < encrypted.size(); ++i) {
     unsigned char encByte = (unsigned char)encrypted[i];
     unsigned char k = key[i % keyLen];
     unsigned char prevEnc = (i > 0) ? (unsigned char)encrypted[i - 1] : 0;
 
-    unsigned char plainByte = encByte ^ k ^ prevEnc;
+    // Layer 1: Standard XOR decryption
+    unsigned char temp = encByte ^ k ^ prevEnc;
+
+    // Layer 2: Reverse bit rotation (rotate right by position % 8)
+    int rotateAmount = i % 8;
+    temp = (temp >> rotateAmount) | (temp << (8 - rotateAmount));
+
+    // Layer 3: XOR with position-dependent value
+    unsigned char posXor = (i * 7 + 13) & 0xFF;
+    unsigned char plainByte = temp ^ posXor;
+
     decrypted[i] = plainByte;
   }
 
